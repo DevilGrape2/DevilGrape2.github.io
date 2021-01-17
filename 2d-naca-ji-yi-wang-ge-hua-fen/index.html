@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2D NACA机翼网格划分 - DevilGrape&#39;Blog</title>
+
+  <link rel="icon" href="">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFCRR8Q57W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script> -->
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-182385326-1');
+    ga('set', 'dimension1', 'site/l9D6og2xc');
+    ga('set', 'dimension2', 'post/');
+    ga('send', 'pageview');
+    // gtag('set', {
+    //   'custom_map': {
+    //     'dimension1': 'siteId',
+    //     'dimension2': 'postId',
+    //   }
+    // })
+
+    // gtag('config', 'G-NFCRR8Q57W', {
+    //   'siteId': 'site/l9D6og2xc',
+    //   'postId': 'post/',
+    // });
+  </script>
+
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="本次使用Pointwise软件划分一个2D NACA机翼模型的网格，详细步骤如下所示
+
+软件介绍
+Pointwise是一个非常好用的网格划分软件，其有如下优点：
+
+易于学习、使用灵活、接口丰富
+手动和自动来提高网格质量，可控性强
+自动装配面...">
+
+  <meta property="og:title" content="2D NACA机翼网格划分 - DevilGrape&#39;Blog">
+  <meta property="og:description" content="本次使用Pointwise软件划分一个2D NACA机翼模型的网格，详细步骤如下所示
+
+软件介绍
+Pointwise是一个非常好用的网格划分软件，其有如下优点：
+
+易于学习、使用灵活、接口丰富
+手动和自动来提高网格质量，可控性强
+自动装配面...">
+  <!-- <meta property="og:image" content="/some-image.png"> -->
+  <meta property="og:url" content="2d-naca-ji-yi-wang-ge-hua-fen/">
+  <meta property="og:site_name" content="DevilGrape&#39;Blog">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="2D NACA机翼网格划分">
+
+  <meta name="gridea:post_id" content="">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.3/styles/a11y-light.css">
+</head>
+<body class="bg-gray-100">
+  <div id="page">
+    <div class="mb-16 sticky top-0 z-20" :class="{
+  'bg-gray-100': !overTop
+}">
+  <header class="py-4 flex items-baseline justify-between max-w-2xl mx-auto px-2">
+    <h1 class="text-xl text-center font-medium px-4 md:px-0">
+      <a href="/">DevilGrape&#39;Blog</a>
+    </h1>
+    <div class="flex justify-center">
+      
+    </div>
+  </header>
+</div>
+    <div class="border-b border-gray-200">
+      <div class="max-w-2xl mx-auto px-6 md:px-2">
+        <div class="my-24">
+          <h1 class="text-3xl py-4 font-black">2D NACA机翼网格划分</h1>
+          <div class="flex ">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sticky-bar" class="w-full sticky top-0 z-10 bg-white" style="height: 64px;"></div>
+    <div class="p-4 md:p-16 bg-white">
+      <div class="max-w-2xl mx-auto px-2 flex relative">
+        <section class="post-content flex-1 default-post-content max-w-2xl">
+          <div v-pre>
+            <p>本次使用Pointwise软件划分一个2D NACA机翼模型的网格，详细步骤如下所示</p>
+<!--more-->
+<h1 id="软件介绍">软件介绍</h1>
+<p>Pointwise是一个非常好用的网格划分软件，其有如下优点：</p>
+<ol>
+<li>易于学习、使用灵活、接口丰富</li>
+<li>手动和自动来提高网格质量，可控性强</li>
+<li>自动装配面或体网格，也可拉伸创建网格</li>
+<li>直接读取CAD文件，高效清理不完善模型</li>
+<li>适用于非常复杂几何模型的T-Rex技术</li>
+<li>可实现网格划分参数化功能的Glyph脚本</li>
+</ol>
+<h1 id="导入几何文件">导入几何文件</h1>
+<ol>
+<li>File, Import, Database</li>
+<li>选择<a href="https://china-cfd.coding.net/s/f573de2a-7d6c-47c9-af6c-449a7e4a8573">NACA6412.igs</a>文件</li>
+<li>Open</li>
+<li>OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/1.jpg" alt="几何" loading="lazy"></li>
+</ol>
+<h1 id="修改默认设置">修改默认设置</h1>
+<ol>
+<li>点击Defaults选项卡</li>
+<li>确保Connector 前面的框被选中</li>
+<li>在Dimension中输入75，然后回车<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/2.jpg" alt="Defaults" loading="lazy"></li>
+</ol>
+<h1 id="创建连接点connector">创建连接点（Connector）</h1>
+<ol>
+<li>点击List选项卡</li>
+<li>选择database中所有的曲线</li>
+<li>点击工具栏的Connectors on Database Entities选项</li>
+<li>选择Connector中所有曲线</li>
+<li>点击工具栏中的Points on选项，可得到如下图形<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/3.jpg" alt="Points on" loading="lazy"></li>
+</ol>
+<h1 id="调节机翼尾端连接点之间的距离">调节机翼尾端连接点之间的距离</h1>
+<ol>
+<li>
+<p>选择机翼尾端的两条连接线<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/4.jpg" alt="机翼尾端" loading="lazy"></p>
+</li>
+<li>
+<p>点击工具栏中Grid选项卡中Dimension选项</p>
+</li>
+<li>
+<p>选中Average $\varDelta s$选项</p>
+</li>
+<li>
+<p>输入0.005，依次点击Dimension、OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/5.jpg" alt="image" loading="lazy"></p>
+</li>
+</ol>
+<h1 id="调节控制点之间的距离">调节控制点之间的距离</h1>
+<ol>
+<li>点击All Masks On/Off 按钮，仅保留Spacing Constraints mask 选项被勾选<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/6.jpg" alt="Constraints" loading="lazy"></li>
+<li>选中机翼尾端上表面和下表面曲线，并输入0.0005<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/7.jpg" alt="尾端" loading="lazy"></li>
+<li>选中机翼首端上表面和下表面曲线，并输入0.005<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/8.jpg" alt="首端" loading="lazy"></li>
+</ol>
+<h1 id="创建计算域">创建计算域</h1>
+<ol>
+<li>勾选Connectors mask</li>
+<li>选择所有的connectors</li>
+<li>点击Create选项卡中的Extrude, Norma选项</li>
+<li>点击Attributes 选项卡</li>
+<li>勾选Step Size 选项</li>
+<li>在Initial $\varDelta s$中输入0.0001</li>
+<li>勾选Orientation 选项</li>
+<li>若箭头方向没有朝外就点击Flip 按钮<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/9.jpg" alt="箭头方向" loading="lazy"></li>
+<li>点击Run 选项卡</li>
+<li>输入91步</li>
+<li>点击Run</li>
+<li>点击 OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/10.jpg" alt="网格" loading="lazy"></li>
+</ol>
+<h1 id="保存项目">保存项目</h1>
+<ol>
+<li>点击工具栏中的Save 按钮</li>
+<li>在弹出的对话框中输入要保存的项目名即可<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/11.jpg" alt="pointwise" loading="lazy"></li>
+</ol>
+
+          </div>
+          <div class="py-4 text-gray-600 flex items-center justify-between">
+            <div class="">
+              <div class="text-sm text-gray-300">最后更新于: </div>
+              <div class="text-base font-medium">2020-05-08</div>
+            </div>
+            <!-- <div class="flex items-center text-sm text-gray-600">
+              <i class="ri-eye-line"></i> <span class="ml-2">{{ views }}</span>
+            </div> -->
+          </div>
+          <div>
+            <div id="disqus_thread"></div>
+          </div>
+        </section>
+        
+          <aside class="sticky toc-container flex-shrink-0 hidden md:block">
+            <div class="text-gray-600 mb-4">目 录</div>
+            <ul class="markdownIt-TOC">
+<li><a href="#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D">软件介绍</a></li>
+<li><a href="#%E5%AF%BC%E5%85%A5%E5%87%A0%E4%BD%95%E6%96%87%E4%BB%B6">导入几何文件</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%AE%BE%E7%BD%AE">修改默认设置</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E7%82%B9connector">创建连接点（Connector）</a></li>
+<li><a href="#%E8%B0%83%E8%8A%82%E6%9C%BA%E7%BF%BC%E5%B0%BE%E7%AB%AF%E8%BF%9E%E6%8E%A5%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB">调节机翼尾端连接点之间的距离</a></li>
+<li><a href="#%E8%B0%83%E8%8A%82%E6%8E%A7%E5%88%B6%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB">调节控制点之间的距离</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%9F%9F">创建计算域</a></li>
+<li><a href="#%E4%BF%9D%E5%AD%98%E9%A1%B9%E7%9B%AE">保存项目</a></li>
+</ul>
+
+          </aside>
+        
+      </div>
+    </div>
+    <div class="py-8 text-gray-300 text-center border-t border-gray-200">
+  Powered by Gridea
+</div>
+  </div>
+
+  <script src="//cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/js/main.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>

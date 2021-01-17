@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>复现图中数据 - DevilGrape&#39;Blog</title>
+
+  <link rel="icon" href="">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFCRR8Q57W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script> -->
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-182385326-1');
+    ga('set', 'dimension1', 'site/l9D6og2xc');
+    ga('set', 'dimension2', 'post/');
+    ga('send', 'pageview');
+    // gtag('set', {
+    //   'custom_map': {
+    //     'dimension1': 'siteId',
+    //     'dimension2': 'postId',
+    //   }
+    // })
+
+    // gtag('config', 'G-NFCRR8Q57W', {
+    //   'siteId': 'site/l9D6og2xc',
+    //   'postId': 'post/',
+    // });
+  </script>
+
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="平常在做科研的时候，有时做出的数据需要和已发表文献中的数据进行对比，但是通常文献中并没有列出足够多的数据，基本都是放一张曲线图就完事了，这就对我们造成了困扰。本次介绍一个可以完美读取并复现图片中曲线的方法。
+例图
+先用python画一幅余弦...">
+
+  <meta property="og:title" content="复现图中数据 - DevilGrape&#39;Blog">
+  <meta property="og:description" content="平常在做科研的时候，有时做出的数据需要和已发表文献中的数据进行对比，但是通常文献中并没有列出足够多的数据，基本都是放一张曲线图就完事了，这就对我们造成了困扰。本次介绍一个可以完美读取并复现图片中曲线的方法。
+例图
+先用python画一幅余弦...">
+  <!-- <meta property="og:image" content="/some-image.png"> -->
+  <meta property="og:url" content="fu-xian-tu-zhong-shu-ju/">
+  <meta property="og:site_name" content="DevilGrape&#39;Blog">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="复现图中数据">
+
+  <meta name="gridea:post_id" content="">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.3/styles/a11y-light.css">
+</head>
+<body class="bg-gray-100">
+  <div id="page">
+    <div class="mb-16 sticky top-0 z-20" :class="{
+  'bg-gray-100': !overTop
+}">
+  <header class="py-4 flex items-baseline justify-between max-w-2xl mx-auto px-2">
+    <h1 class="text-xl text-center font-medium px-4 md:px-0">
+      <a href="/">DevilGrape&#39;Blog</a>
+    </h1>
+    <div class="flex justify-center">
+      
+    </div>
+  </header>
+</div>
+    <div class="border-b border-gray-200">
+      <div class="max-w-2xl mx-auto px-6 md:px-2">
+        <div class="my-24">
+          <h1 class="text-3xl py-4 font-black">复现图中数据</h1>
+          <div class="flex ">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sticky-bar" class="w-full sticky top-0 z-10 bg-white" style="height: 64px;"></div>
+    <div class="p-4 md:p-16 bg-white">
+      <div class="max-w-2xl mx-auto px-2 flex relative">
+        <section class="post-content flex-1 default-post-content max-w-2xl">
+          <div v-pre>
+            <p>平常在做科研的时候，有时做出的数据需要和已发表文献中的数据进行对比，但是通常文献中并没有列出足够多的数据，基本都是放一张曲线图就完事了，这就对我们造成了困扰。本次介绍一个可以完美读取并复现图片中曲线的方法。</p>
+<h2 id="例图">例图</h2>
+<p>先用python画一幅余弦曲线图，代码如图形如下：</p>
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+x=np.linspace(-np.pi,np.pi,256,endpoint=True)
+plt.xlim(-4,4)
+plt.xticks([-4,-3,-2,-1,0,1,2,3,4])
+plt.ylim(-1.1,1.1)
+plt.yticks([-1.1,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1])
+plt.plot(x,np.cos(x))
+plt.savefig('余弦曲线.jpeg',dpi=500)
+</code></pre>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE1.jpg" alt="image" loading="lazy"></p>
+<h2 id="软件介绍">软件介绍</h2>
+<p>Engauge Digitizer（<a href="https://github.com/markummitchell/engauge-digitizer/releases">下载</a>）是一款从曲线图表中提取数据的软件，经过测试，非常好用，本文使用此软件来提取数据。下图为余弦曲线图导入后的界面<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE2.jpg" alt="image" loading="lazy"></p>
+<h2 id="读取数据">读取数据</h2>
+<p>选取数据点图形<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE3.jpg" alt="image" loading="lazy"><br>
+数据图（<a href="https://china-cfd.coding.net/s/863a2cea-b0d7-49f7-8d93-96823df40b55">下载</a>）<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE4.jpg" alt="image" loading="lazy"></p>
+<h2 id="数据拟合">数据拟合</h2>
+<p>使用python进行数据的拟合和绘图，代码如下：</p>
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+df = pd.read_csv('余弦曲线 (1).csv')
+x=df['x']
+y=df['yuxian']
+def fit(x,y,n):
+​    poly=np.polyfit(x,y,deg=n)
+​    z=np.polyval(poly,x)
+​    return z
+
+fit_y=fit(x,y,7)
+plt.xlim(-4,4)
+plt.xticks([-4,-3,-2,-1,0,1,2,3,4])
+plt.ylim(-1.1,1.1)
+plt.yticks([-1.1,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1])
+plt.plot(x,fit_y,color='r')
+plt.savefig('拟合.jpeg',dpi=500)
+</code></pre>
+<h3 id="拟合结果图">拟合结果图</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE5.jpeg" alt="image" loading="lazy"></p>
+<h2 id="原图和拟合对比">原图和拟合对比</h2>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE6.jpeg" alt="image" loading="lazy"></p>
+<h1 id="总结">总结</h1>
+<p>从对比图中可以看出拟合图和原图几乎完全一致，符合日常的使用要求，但这种方法请务必不要用于不正当的场所。</p>
+
+          </div>
+          <div class="py-4 text-gray-600 flex items-center justify-between">
+            <div class="">
+              <div class="text-sm text-gray-300">最后更新于: </div>
+              <div class="text-base font-medium">2020-05-08</div>
+            </div>
+            <!-- <div class="flex items-center text-sm text-gray-600">
+              <i class="ri-eye-line"></i> <span class="ml-2">{{ views }}</span>
+            </div> -->
+          </div>
+          <div>
+            <div id="disqus_thread"></div>
+          </div>
+        </section>
+        
+          <aside class="sticky toc-container flex-shrink-0 hidden md:block">
+            <div class="text-gray-600 mb-4">目 录</div>
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%BE%8B%E5%9B%BE">例图</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D">软件介绍</a></li>
+<li><a href="#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE">读取数据</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E6%8B%9F%E5%90%88">数据拟合</a>
+<ul>
+<li><a href="#%E6%8B%9F%E5%90%88%E7%BB%93%E6%9E%9C%E5%9B%BE">拟合结果图</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8E%9F%E5%9B%BE%E5%92%8C%E6%8B%9F%E5%90%88%E5%AF%B9%E6%AF%94">原图和拟合对比</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+
+          </aside>
+        
+      </div>
+    </div>
+    <div class="py-8 text-gray-300 text-center border-t border-gray-200">
+  Powered by Gridea
+</div>
+  </div>
+
+  <script src="//cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/js/main.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>

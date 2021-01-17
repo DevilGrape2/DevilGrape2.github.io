@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>graphviz教程7（角度变化图） - DevilGrape&#39;Blog</title>
+
+  <link rel="icon" href="">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFCRR8Q57W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script> -->
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-182385326-1');
+    ga('set', 'dimension1', 'site/l9D6og2xc');
+    ga('set', 'dimension2', 'post/');
+    ga('send', 'pageview');
+    // gtag('set', {
+    //   'custom_map': {
+    //     'dimension1': 'siteId',
+    //     'dimension2': 'postId',
+    //   }
+    // })
+
+    // gtag('config', 'G-NFCRR8Q57W', {
+    //   'siteId': 'site/l9D6og2xc',
+    //   'postId': 'post/',
+    // });
+  </script>
+
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="本次博文的内容主要为：使用python代码画一个角度随时间的变化图。如下为代码实现的过程。
+ 
+from graphviz import Digraph
+
+g = Digraph(&#39;G&#39;, filename=&#39;angles.gv&#39;,form...">
+
+  <meta property="og:title" content="graphviz教程7（角度变化图） - DevilGrape&#39;Blog">
+  <meta property="og:description" content="本次博文的内容主要为：使用python代码画一个角度随时间的变化图。如下为代码实现的过程。
+ 
+from graphviz import Digraph
+
+g = Digraph(&#39;G&#39;, filename=&#39;angles.gv&#39;,form...">
+  <!-- <meta property="og:image" content="/some-image.png"> -->
+  <meta property="og:url" content="graphviz-jiao-cheng-7jiao-du-bian-hua-tu/">
+  <meta property="og:site_name" content="DevilGrape&#39;Blog">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="graphviz教程7（角度变化图）">
+
+  <meta name="gridea:post_id" content="">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.3/styles/a11y-light.css">
+</head>
+<body class="bg-gray-100">
+  <div id="page">
+    <div class="mb-16 sticky top-0 z-20" :class="{
+  'bg-gray-100': !overTop
+}">
+  <header class="py-4 flex items-baseline justify-between max-w-2xl mx-auto px-2">
+    <h1 class="text-xl text-center font-medium px-4 md:px-0">
+      <a href="/">DevilGrape&#39;Blog</a>
+    </h1>
+    <div class="flex justify-center">
+      
+    </div>
+  </header>
+</div>
+    <div class="border-b border-gray-200">
+      <div class="max-w-2xl mx-auto px-6 md:px-2">
+        <div class="my-24">
+          <h1 class="text-3xl py-4 font-black">graphviz教程7（角度变化图）</h1>
+          <div class="flex ">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sticky-bar" class="w-full sticky top-0 z-10 bg-white" style="height: 64px;"></div>
+    <div class="p-4 md:p-16 bg-white">
+      <div class="max-w-2xl mx-auto px-2 flex relative">
+        <section class="post-content flex-1 default-post-content max-w-2xl">
+          <div v-pre>
+            <p>本次博文的内容主要为：使用python代码画一个角度随时间的变化图。如下为代码实现的过程。</p>
+<!--more--> 
+<pre><code>from graphviz import Digraph
+
+g = Digraph('G', filename='angles.gv',format='png')
+g.attr(bgcolor='blue',dpi='500')
+
+with g.subgraph(name='cluster_1') as c:
+    c.attr(fontcolor='white')
+    c.attr('node', shape='circle', style='filled', fillcolor='white:black',
+           gradientangle='360', label='n9:360', fontcolor='black')
+    c.node('n9')
+    for i, a in zip(range(8, 0, -1), range(360 - 45, -1, -45)):
+        c.attr('node', gradientangle='%d' % a, label='n%d:%d' % (i, a))
+        c.node('n%d' % i)
+    c.attr(label='Linear Angle Variations (white to black gradient)')
+
+with g.subgraph(name='cluster_2') as c:
+    c.attr(fontcolor='white')
+    c.attr('node', shape='circle', style='radial', fillcolor='white:black',
+           gradientangle='360', label='n18:360', fontcolor='black')
+    c.node('n18')
+    for i, a in zip(range(17, 9, -1), range(360 - 45, -1, -45)):
+        c.attr('node', gradientangle='%d' % a, label='n%d:%d' % (i, a))
+        c.node('n%d' % i)
+    c.attr(label='Radial Angle Variations (white to black gradient)')
+
+g.edge('n5', 'n14')
+g.render('角度变化')
+print(g.source)
+g.view()
+</code></pre>
+<h2 id="所得图形">所得图形</h2>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E8%A7%92%E5%BA%A6%E5%8F%98%E5%8C%96.png" alt="角度变化" loading="lazy"></p>
+
+          </div>
+          <div class="py-4 text-gray-600 flex items-center justify-between">
+            <div class="">
+              <div class="text-sm text-gray-300">最后更新于: </div>
+              <div class="text-base font-medium">2020-05-08</div>
+            </div>
+            <!-- <div class="flex items-center text-sm text-gray-600">
+              <i class="ri-eye-line"></i> <span class="ml-2">{{ views }}</span>
+            </div> -->
+          </div>
+          <div>
+            <div id="disqus_thread"></div>
+          </div>
+        </section>
+        
+          <aside class="sticky toc-container flex-shrink-0 hidden md:block">
+            <div class="text-gray-600 mb-4">目 录</div>
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%89%80%E5%BE%97%E5%9B%BE%E5%BD%A2">所得图形</a></li>
+</ul>
+</li>
+</ul>
+
+          </aside>
+        
+      </div>
+    </div>
+    <div class="py-8 text-gray-300 text-center border-t border-gray-200">
+  Powered by Gridea
+</div>
+  </div>
+
+  <script src="//cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/js/main.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>

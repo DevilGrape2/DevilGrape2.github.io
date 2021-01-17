@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2D T-Rex 网格划分 - DevilGrape&#39;Blog</title>
+
+  <link rel="icon" href="">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFCRR8Q57W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script> -->
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-182385326-1');
+    ga('set', 'dimension1', 'site/l9D6og2xc');
+    ga('set', 'dimension2', 'post/');
+    ga('send', 'pageview');
+    // gtag('set', {
+    //   'custom_map': {
+    //     'dimension1': 'siteId',
+    //     'dimension2': 'postId',
+    //   }
+    // })
+
+    // gtag('config', 'G-NFCRR8Q57W', {
+    //   'siteId': 'site/l9D6og2xc',
+    //   'postId': 'post/',
+    // });
+  </script>
+
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="本次使用Pointwise软件划分一个2D NACA机翼模型的T-Rex网格，详细步骤如下所示
+
+求解器设置
+
+CAE，Select Solver
+CGNS
+OK
+CAE,Set Dimension
+2D
+
+
+导入几何
+
+File，Impo...">
+
+  <meta property="og:title" content="2D T-Rex 网格划分 - DevilGrape&#39;Blog">
+  <meta property="og:description" content="本次使用Pointwise软件划分一个2D NACA机翼模型的T-Rex网格，详细步骤如下所示
+
+求解器设置
+
+CAE，Select Solver
+CGNS
+OK
+CAE,Set Dimension
+2D
+
+
+导入几何
+
+File，Impo...">
+  <!-- <meta property="og:image" content="/some-image.png"> -->
+  <meta property="og:url" content="2d-t-rex-wang-ge-hua-fen/">
+  <meta property="og:site_name" content="DevilGrape&#39;Blog">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="2D T-Rex 网格划分">
+
+  <meta name="gridea:post_id" content="">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.3/styles/a11y-light.css">
+</head>
+<body class="bg-gray-100">
+  <div id="page">
+    <div class="mb-16 sticky top-0 z-20" :class="{
+  'bg-gray-100': !overTop
+}">
+  <header class="py-4 flex items-baseline justify-between max-w-2xl mx-auto px-2">
+    <h1 class="text-xl text-center font-medium px-4 md:px-0">
+      <a href="/">DevilGrape&#39;Blog</a>
+    </h1>
+    <div class="flex justify-center">
+      
+    </div>
+  </header>
+</div>
+    <div class="border-b border-gray-200">
+      <div class="max-w-2xl mx-auto px-6 md:px-2">
+        <div class="my-24">
+          <h1 class="text-3xl py-4 font-black">2D T-Rex 网格划分</h1>
+          <div class="flex ">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sticky-bar" class="w-full sticky top-0 z-10 bg-white" style="height: 64px;"></div>
+    <div class="p-4 md:p-16 bg-white">
+      <div class="max-w-2xl mx-auto px-2 flex relative">
+        <section class="post-content flex-1 default-post-content max-w-2xl">
+          <div v-pre>
+            <p>本次使用Pointwise软件划分一个2D NACA机翼模型的T-Rex网格，详细步骤如下所示</p>
+<!--more-->
+<h1 id="求解器设置">求解器设置</h1>
+<ol>
+<li>CAE，Select Solver</li>
+<li>CGNS</li>
+<li>OK</li>
+<li>CAE,Set Dimension</li>
+<li>2D<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex1.jpg" alt="求解器设置" loading="lazy"></li>
+</ol>
+<h1 id="导入几何">导入几何</h1>
+<ol>
+<li>File，Import，Database</li>
+<li>选择<a href="https://china-cfd.coding.net/s/92406553-eb42-457e-b435-46c5f4ec71bf">RAF89.iges</a></li>
+<li>Open</li>
+<li>OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex2.jpg" alt="几何" loading="lazy"></li>
+</ol>
+<h1 id="网格节点设置">网格节点设置</h1>
+<ol>
+<li>点击Layers</li>
+<li>点击Empty Layers</li>
+<li>双击10号边界层的Description field</li>
+<li>输入Airfoil Grid</li>
+<li>点击Set Current，将10号边界层设为当前边界层</li>
+<li>取消Show Empty Layers 选项卡<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex3.jpg" alt="网格设置" loading="lazy"></li>
+</ol>
+<h1 id="默认设置">默认设置</h1>
+<ol>
+<li>点击Defaults选项卡</li>
+<li>确保Connector选中</li>
+<li>点击Average $\varDelta s$，输入0.05</li>
+<li>Max. Deviation中输入0.0005</li>
+<li>Begin $\varDelta s$中输入0.005</li>
+<li>End $\varDelta s$中输入0.005<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex4.jpg" alt="默认设置" loading="lazy"></li>
+</ol>
+<h1 id="创建连接点">创建连接点</h1>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex5.jpg" alt="连接点" loading="lazy"></p>
+<ol>
+<li>点击List选项卡</li>
+<li>选中Database中所有的曲线</li>
+<li>点击工具栏中的Connectors on Database Entities</li>
+<li>点击Defaults选项卡</li>
+<li>点击Reset Defaults 按钮</li>
+<li>选中Dimension 选项</li>
+<li>输入31</li>
+<li>点击工具栏 2 Point Curves 选项</li>
+<li>点击Entity Type,Connector</li>
+<li>选中点A</li>
+<li>选中Advanced 选项卡</li>
+<li>XYZ Offset 中输入 5 0 0</li>
+<li>选中点B</li>
+<li>XYZ Offset 中输入 0 5 0</li>
+<li>选中点C</li>
+<li>XYZ Offset 中输入 -10 0 0</li>
+<li>选中点D</li>
+<li>XYZ Offset 中输入 0 -10 0</li>
+<li>OK</li>
+<li>选择连接线：BC和CD</li>
+<li>Ctrl+C</li>
+<li>Ctrl+V</li>
+<li>Mirror</li>
+<li>选择并输入Y=0.0</li>
+<li>OK</li>
+<li>OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex6.jpg" alt="spacing" loading="lazy"></li>
+<li>选择spacing constraint</li>
+<li>选择A点附近，输入0.005</li>
+<li>选择B点附近，输入0.5</li>
+<li>点击List选项卡中的全部connectors</li>
+<li>点击选项卡中的Points On<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex7.jpg" alt="image" loading="lazy"></li>
+</ol>
+<h1 id="创建非结构网格计算域">创建非结构网格计算域</h1>
+<ol>
+<li>选择工具栏中的Unstructures</li>
+<li>点击工具栏中Creat,Assemble Special,Domain</li>
+<li>确保Auto Save 和Auto Complete 都不选中</li>
+<li>选择AB连接线</li>
+<li>选择机翼上层连接线</li>
+<li>选择机翼下层连接线</li>
+<li>再次选择AB连接线</li>
+<li>选中Auto Save 和Auto Complete</li>
+<li>选择BF</li>
+<li>OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex8.jpg" alt="计算域" loading="lazy"></li>
+</ol>
+<h1 id="创建t-rex-计算域">创建T-Rex 计算域</h1>
+<ol>
+<li>选择刚创建的计算域</li>
+<li>Grid, T-Rex</li>
+<li>Max. Layers 中输入25</li>
+<li>Full Layers 中输入5</li>
+<li>在Cell Types 中选择Triangles and Quads<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex9.jpg" alt="image" loading="lazy"></li>
+<li>取消Use Default next to Growth Rate 选项</li>
+<li>Growth Rate中输入1.2</li>
+<li>点击Boundary Conditions 选项卡</li>
+<li>点击 New</li>
+<li>双击new BC (bc-2)中的name，输入T-Rex</li>
+<li>双击T-Rex 的Type，选择Wall</li>
+<li>双击T-Rex 中的$\varDelta s$，输入0.005</li>
+<li>选择AO和OA连接线</li>
+<li>选择AB的两侧</li>
+<li>选择T-Rex BC<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex10.jpg" alt="image" loading="lazy"></li>
+<li>点击New</li>
+<li>双击new BC (bc-3)中的name，输入Symmetry</li>
+<li>选择Symmetry中的Type field 为Match</li>
+<li>选择BC 和 BF连接线</li>
+<li>选择Symmetry BC<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex11.jpg" alt="image" loading="lazy"></li>
+<li>点击Solve 选项卡</li>
+<li>点击Initialize</li>
+<li>OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex12.jpg" alt="image" loading="lazy"></li>
+</ol>
+<h1 id="调节网格分布增长率">调节网格分布增长率</h1>
+<ol>
+<li>
+<p>选择BC 和 BF连接线</p>
+</li>
+<li>
+<p>Grid, Distribute</p>
+</li>
+<li>
+<p>点击 Spacing 选项卡</p>
+</li>
+<li>
+<p>选择B 点附近的连接线</p>
+</li>
+<li>
+<p>Spacing中输入0.005<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex13.jpg" alt="image" loading="lazy"></p>
+</li>
+<li>
+<p>选择C和F的spacing constraints</p>
+</li>
+<li>
+<p>Spacing 中输入0.3</p>
+</li>
+<li>
+<p>点击Functions 选项卡</p>
+</li>
+<li>
+<p>选择Growth</p>
+</li>
+<li>
+<p>Begin 按钮中选择Number of Layers and Growth Rate</p>
+</li>
+<li>
+<p>Number of Layers 中输入25</p>
+</li>
+<li>
+<p>Growth Rate 中输入1.2</p>
+</li>
+<li>
+<p>Apply<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex14.jpg" alt="image" loading="lazy"></p>
+</li>
+<li>
+<p>点击Dimension 选项卡</p>
+</li>
+<li>
+<p>选择BC 连接线</p>
+</li>
+<li>
+<p>点击Set Optimal Dimension button</p>
+</li>
+<li>
+<p>点击Select Connector button</p>
+</li>
+<li>
+<p>选择BF 连接线</p>
+</li>
+<li>
+<p>点击Set Optimal Dimension button</p>
+</li>
+<li>
+<p>Apply</p>
+</li>
+<li>
+<p>OK<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex15.jpg" alt="image" loading="lazy"></p>
+</li>
+</ol>
+<h1 id="保存项目文件">保存项目文件</h1>
+<ol>
+<li>点击工具栏中的Save</li>
+<li>输入文件名<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/T-Rex16.jpg" alt="image" loading="lazy"></li>
+</ol>
+
+          </div>
+          <div class="py-4 text-gray-600 flex items-center justify-between">
+            <div class="">
+              <div class="text-sm text-gray-300">最后更新于: </div>
+              <div class="text-base font-medium">2020-05-08</div>
+            </div>
+            <!-- <div class="flex items-center text-sm text-gray-600">
+              <i class="ri-eye-line"></i> <span class="ml-2">{{ views }}</span>
+            </div> -->
+          </div>
+          <div>
+            <div id="disqus_thread"></div>
+          </div>
+        </section>
+        
+          <aside class="sticky toc-container flex-shrink-0 hidden md:block">
+            <div class="text-gray-600 mb-4">目 录</div>
+            <ul class="markdownIt-TOC">
+<li><a href="#%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE">求解器设置</a></li>
+<li><a href="#%E5%AF%BC%E5%85%A5%E5%87%A0%E4%BD%95">导入几何</a></li>
+<li><a href="#%E7%BD%91%E6%A0%BC%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE">网格节点设置</a></li>
+<li><a href="#%E9%BB%98%E8%AE%A4%E8%AE%BE%E7%BD%AE">默认设置</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E7%82%B9">创建连接点</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E9%9D%9E%E7%BB%93%E6%9E%84%E7%BD%91%E6%A0%BC%E8%AE%A1%E7%AE%97%E5%9F%9F">创建非结构网格计算域</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAt-rex-%E8%AE%A1%E7%AE%97%E5%9F%9F">创建T-Rex 计算域</a></li>
+<li><a href="#%E8%B0%83%E8%8A%82%E7%BD%91%E6%A0%BC%E5%88%86%E5%B8%83%E5%A2%9E%E9%95%BF%E7%8E%87">调节网格分布增长率</a></li>
+<li><a href="#%E4%BF%9D%E5%AD%98%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6">保存项目文件</a></li>
+</ul>
+
+          </aside>
+        
+      </div>
+    </div>
+    <div class="py-8 text-gray-300 text-center border-t border-gray-200">
+  Powered by Gridea
+</div>
+  </div>
+
+  <script src="//cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="//cdn.jsdelivr.net/npm/@gridea/theme@1.0.4/js/main.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>

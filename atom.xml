@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>www.redred.xyz</id>
+    <title>DevilGrape'Blog</title>
+    <updated>2021-01-17T14:24:23.636Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="www.redred.xyz"/>
+    <link rel="self" href="www.redred.xyz/atom.xml"/>
+    <rights>All rights reserved 2021, DevilGrape'Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[测试2]]></title>
+        <id>https://www.redred.xyz/ce-shi2</id>
+        <link href="https://www.redred.xyz/ce-shi2"/>
+        <updated>2021-01-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[测试2
+]]></summary>
+        <content type="html"><![CDATA[<p>测试2</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[测试]]></title>
+        <id>https://www.redred.xyz/ce-shi</id>
+        <link href="https://www.redred.xyz/ce-shi"/>
+        <updated>2021-01-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[测试
+]]></summary>
+        <content type="html"><![CDATA[<p>测试</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[二维结冰计算]]></title>
+        <id>https://www.redred.xyz/er-wei-jie-bing-ji-suan</id>
+        <link href="https://www.redred.xyz/er-wei-jie-bing-ji-suan"/>
+        <updated>2020-07-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[
+
+建立计算域与网格划分
+
+由于FENSAP-ICE无法计算二维结构结冰，因此在计算二维结构结冰的时候需要将二维网格向z方向拉伸一层网格，进行伪三维计算。
+
+
+
+
+结冰计算
+2.1 读入mesh文件
+
+
+
+2.2 选择sst k-omega...]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>建立计算域与网格划分<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%BA%8C%E7%BB%B4%E7%BB%93%E5%86%B0%E8%AE%A1%E7%AE%97%E5%9F%9F.jpg" alt="二维结冰计算域" loading="lazy"></p>
+<p>由于FENSAP-ICE无法计算二维结构结冰，因此在计算二维结构结冰的时候需要将二维网格向z方向拉伸一层网格，进行伪三维计算。<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%9C%AA%E6%8B%89%E4%BC%B8%E7%9A%84%E4%BA%8C%E7%BB%B4%E7%BD%91%E6%A0%BC.png" alt="未拉伸的二维网格" loading="lazy"><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%8B%89%E4%BC%B8%E5%90%8E%E7%9A%84%E4%BA%8C%E7%BB%B4%E7%BD%91%E6%A0%BC.png" alt="拉伸后的二维网格" loading="lazy"><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E7%BB%93%E5%86%B0%E4%BA%8C%E7%BB%B4%E8%AE%A1%E7%AE%97%E5%9F%9F%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6.jpg" alt="结冰二维计算域边界条件" loading="lazy"></p>
+</li>
+<li>
+<p>结冰计算<br>
+2.1 读入mesh文件<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E8%AF%BB%E5%85%A5msh%E6%96%87%E4%BB%B6.png" alt="读入msh文件" loading="lazy"><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E8%BD%AC%E6%8D%A2%E5%8D%95%E4%BD%8D.png" alt="转换单位" loading="lazy"></p>
+</li>
+</ol>
+<p>2.2 选择sst k-omega湍流模型，本次演示使用的物性参数均为默认，当实际计算时应该按照实际工况进行修改。<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%B9%8D%E6%B5%81%E6%A8%A1%E5%9E%8B.png" alt="湍流模型"  /><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E7%BB%93%E5%86%B0%E4%BA%8C%E7%BB%B4%E8%AE%A1%E7%AE%97%E5%9F%9F%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6%E8%AE%BE%E7%BD%AE.jpg" alt="结冰二维计算域边界条件设置" loading="lazy"></p>
+<p>2.3 Fluent中点击File/Applations/Icing<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/icing%E7%95%8C%E9%9D%A2.png" alt="icing界面" loading="lazy"></p>
+<p>2.4 水滴与结冰参数设置（仅为演示，请根据实际情况进行设置）<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%B0%B4%E6%BB%B4%E5%8F%82%E6%95%B0.png" alt="水滴参数" loading="lazy"><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E7%BB%93%E5%86%B0%E5%8F%82%E6%95%B0.png" alt="结冰参数" loading="lazy"></p>
+<p>2.5 不同壁面的结冰与否设置，upwall与downwall如左图所示，circle如右图所示，其他边界的条件不变（其余的参数请根据实际工况进行设置）<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/upwall%E4%B8%8Edownwall%E7%BB%93%E5%86%B0%E4%B8%8E%E5%90%A6.png" alt="upwall与downwall结冰与否" loading="lazy"><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/circle%E7%BB%93%E5%86%B0%E4%B8%8E%E5%90%A6.png" alt="circle结冰与否" loading="lazy"></p>
+<p>2.6 求解设置<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E7%BB%93%E5%86%B0%E6%95%B4%E4%B8%AA%E6%B5%81%E7%A8%8B%E9%87%8D%E5%A4%8D%E6%AC%A1%E6%95%B0.jpg" alt="结冰整个流程重复次数" loading="lazy"><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%B5%81%E5%9C%BA%E6%AD%A5%E6%95%B0.png" alt="流场步数" loading="lazy"><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%B0%B4%E6%BB%B4%E6%B1%82%E8%A7%A3%E8%AE%BE%E7%BD%AE.png" alt="水滴求解设置" loading="lazy"><br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E7%BB%93%E5%86%B0%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE.png" alt="结冰时间设置" loading="lazy"></p>
+<p>2.7 求解显示<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%B5%81%E5%9C%BA%E6%B1%82%E8%A7%A3%E6%98%BE%E7%A4%BA.png" alt="流场求解显示" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[有限差分法求解偏微分方程(中心差分)]]></title>
+        <id>https://www.redred.xyz/you-xian-chai-fen-fa-qiu-jie-pian-wei-fen-fang-cheng-zhong-xin-chai-fen</id>
+        <link href="https://www.redred.xyz/you-xian-chai-fen-fa-qiu-jie-pian-wei-fen-fang-cheng-zhong-xin-chai-fen"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[本程序使用matab2018a 运行通过
+常微分方程为:  $$ x{\prime}(t)=-2x(t)+t $$
+
+clear;
+% 将方程转换为: ax'=bx + ct
+a=1.;
+b=-2.;
+c=1.;
+% 初始时间
+tinit=...]]></summary>
+        <content type="html"><![CDATA[<p>本程序使用matab2018a 运行通过</p>
+<h2 id="常微分方程为-xprimet-2xtt">常微分方程为:  $$ x{\prime}(t)=-2x(t)+t $$</h2>
+<!--more-->
+<pre><code>clear;
+% 将方程转换为: ax'=bx + ct
+a=1.;
+b=-2.;
+c=1.;
+% 初始时间
+tinit= 0.;
+tmax=5.;
+% 步数
+maxt = 3000;
+dt = (tmax-tinit)/maxt;
+% 初始条件
+x(2)=1.;
+x(1)=1.0-dt*((b*x(2)+c*(2)*dt)/a);
+t(2)=tinit;
+% 迭代求解
+for j=2:(maxt+1);
+x(j+1)=x(j-1)+2.*dt*((b*x(j)+c*(j)*dt)/a);
+t(j+1)=tinit+(j-1)*dt;
+end;
+plot(t,x)
+title('Midpoint Method')
+xlabel('T')
+ylabel('X(t)')
+</code></pre>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86%E6%B3%95%E6%B1%82%E8%A7%A3%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%BF%83%E5%B7%AE%E5%88%86.jpg" alt="avatar" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[有限差分法求解偏微分方程（欧拉法）]]></title>
+        <id>https://www.redred.xyz/you-xian-chai-fen-fa-qiu-jie-pian-wei-fen-fang-cheng-ou-la-fa</id>
+        <link href="https://www.redred.xyz/you-xian-chai-fen-fa-qiu-jie-pian-wei-fen-fang-cheng-ou-la-fa"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[本程序使用matab2018a 运行通过
+常微分方程为： $$ x{\prime}(t)=-2x(t)+t $$
+
+clear;
+% 将方程转换为: ax'=bx + ct
+a=1.;
+b=-2.;
+c=1.;
+% 初始值
+tinit= 0...]]></summary>
+        <content type="html"><![CDATA[<p>本程序使用matab2018a 运行通过</p>
+<h2 id="常微分方程为-xprimet-2xtt">常微分方程为： $$ x{\prime}(t)=-2x(t)+t $$</h2>
+<!--more-->
+<pre><code>clear;
+% 将方程转换为: ax'=bx + ct
+a=1.;
+b=-2.;
+c=1.;
+% 初始值
+tinit= 0.;
+tmax=5.;
+% 时间步长
+maxt = 3000;
+dt = (tmax-tinit)/maxt;
+% 初始条件
+x(1)=1.;
+t(1)=tinit;
+% 迭代求解
+for j=1:maxt;
+x(j+1)=x(j)+dt*((b*x(j)+c*(j)*dt)/a);
+t(j+1)=tinit+j*dt;
+end;
+%画图
+plot(t,x)
+title('Euler Method')
+xlabel('T')
+ylabel('X(t)')
+</code></pre>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86%E6%B3%95%E6%B1%82%E8%A7%A3%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%AC%A7%E6%8B%89%E6%B3%95.jpg" alt="图片" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一维非线性对流方程]]></title>
+        <id>https://www.redred.xyz/yi-wei-fei-xian-xing-dui-liu-fang-cheng</id>
+        <link href="https://www.redred.xyz/yi-wei-fei-xian-xing-dui-liu-fang-cheng"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程
+$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}...]]></summary>
+        <content type="html"><![CDATA[<p>一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程<br>
+$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0$$<br>
+从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法</p>
+<!--more-->
+<h2 id="数值离散">数值离散</h2>
+<p>对时间项向前差分，空间项使用向后差分<br>
+$$\frac{u^{n+1}<em>i-u^n_i}{\Delta t}+u^n_i\frac{u^n_i-u^n</em>{i-1}}{\Delta x}=0$$<br>
+整理可得<br>
+$$u^{n+1}<em>i=u^n_i-u^n_i\frac{\Delta t}{\Delta x}(u^n_i-u^n</em>{i-1})$$</p>
+<h3 id="初始条件">初始条件</h3>
+<p>定义域为（0,2），在[0.5,1]范围内，U=2,其他区间内，U均为1</p>
+<h2 id="编程求解">编程求解</h2>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+nx=41 #空间节点
+dx=2/(nx-1) #空间步长
+nt=20 #时间节点
+dt=0.025 #时间步长
+
+u=np.ones(nx)
+u[int(0.5/dx):int(1/dx+1)]=2
+un=np.ones(nx)
+
+for n in range(nt):
+    un=u.copy()
+    for i in range(1,nx):
+        u[i]=un[i]-un[i]*(un[i]-un[i-1])*dt/dx
+plt.legend(fontsize=12)
+plt.xlabel('时间',fontsize=12)
+plt.ylabel('波高',fontsize=12)
+plt.show()
+
+</code></pre>
+<h3 id="最终波形">最终波形</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%B8%80%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B.jpg" alt="图片" loading="lazy"><br>
+本文参考自<a href="http://nbviewer.jupyter.org/github/barbagroup/CFDPython/blob/master/lessons/02_Step_2.ipynb">CFDPython</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一维线性对流方程]]></title>
+        <id>https://www.redred.xyz/yi-wei-xian-xing-dui-liu-fang-cheng</id>
+        <link href="https://www.redred.xyz/yi-wei-xian-xing-dui-liu-fang-cheng"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一维线性对流方程是cfd中最简单、最基础的控制方程，通过对一维线性对流方程的离散与计算可以学到cfd计算的基本过程
+$$\frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x}...]]></summary>
+        <content type="html"><![CDATA[<p>一维线性对流方程是cfd中最简单、最基础的控制方程，通过对一维线性对流方程的离散与计算可以学到cfd计算的基本过程</p>
+<p>$$\frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x}=0$$</p>
+<p>对流方程可以看做是波的传播方程，其中c代表波速</p>
+<!--more-->
+<h2 id="数值离散">数值离散</h2>
+<p>对时间项向前差分，空间项使用向后差分。<br>
+下式为对空间项向后差分<br>
+$$\frac{\partial u}{\partial t} \approx \frac{u(x+\Delta x)-u(x)}{\Delta x}$$<br>
+总的离散方程<br>
+$$\frac{u^{n+1}<em>i-u^n_i}{\Delta t}+c\frac{u^n_i-u^n</em>{i-1}}{\Delta x}=0$$<br>
+变换形式的离散方程<br>
+$$u^{n+1}<em>i=u^n_i-c\frac{\Delta t}{\Delta x}(u^n_i-u^n</em>{i-1})$$</p>
+<h3 id="初始条件">初始条件</h3>
+<p>定义域为（0,2），在[0.5,1]范围内，U=2,其他区间内，U均为1</p>
+<h2 id="编程求解">编程求解</h2>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+import time,sys
+
+nx=41  #空间节点数
+dx=2/(nx-1) #空间步长
+
+nt=25 #时间步数
+dt=0.025 #时间步长
+c=1  #传播速度
+
+u=np.ones(nx) #所有节点初始化为1
+u[int(0.5/dx):int(1/dx+1)]=2 #将[0.5,1]之间的值初始化为2
+print(u)
+un=np.ones(nx) #初始化时间节点
+for n in range(nt): #s时间步长，从0到25
+un=u.copy() #将已存在的u值赋予un
+for i in range(1,nx):
+u[i]=un[i]-c*dt/dx*(un[i]-un[i-1])
+plt.plot(np.linspace(0,2,nx),u)
+plt.show()
+
+</code></pre>
+<h3 id="初始波形">初始波形</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%B8%80%E7%BB%B4%E5%AF%B9%E6%B5%81%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E5%88%9D%E5%A7%8B%E6%B3%A2%E5%BD%A2.jpeg" alt="图片" loading="lazy"></p>
+<h3 id="最终波形">最终波形</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%B8%80%E7%BB%B4%E5%AF%B9%E6%B5%81%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E6%9C%80%E7%BB%88%E6%B3%A2%E5%BD%A2.jpeg" alt="图片" loading="lazy"></p>
+<h3 id="波形对比">波形对比</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%B8%80%E7%BB%B4%E5%AF%B9%E6%B5%81%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E6%B3%A2%E5%BD%A2%E5%AF%B9%E6%AF%94.jpeg" alt="图片" loading="lazy"></p>
+<h3 id="初始化输出的值">初始化输出的值</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%B8%80%E7%BB%B4%E5%AF%B9%E6%B5%81%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E8%BF%90%E8%A1%8C%E5%88%9D%E5%A7%8B%E5%8C%96.JPG" alt="图片" loading="lazy"><br>
+本文参考自<a href="http://nbviewer.jupyter.org/github/barbagroup/CFDPython/blob/master/lessons/01_Step_1.ipynb">CFDPython</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[常微分方程的数值解法（龙格库塔法）]]></title>
+        <id>https://www.redred.xyz/chang-wei-fen-fang-cheng-de-shu-zhi-jie-fa-long-ge-ku-ta-fa</id>
+        <link href="https://www.redred.xyz/chang-wei-fen-fang-cheng-de-shu-zhi-jie-fa-long-ge-ku-ta-fa"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[常微分方程为：$$ x{\prime}(t)=x $$
+其解析解容易求得为$$ t=e^t $$ 当t=0时，$ e^0=1 $,当t=10时，$ e^{10}=22026.465794806718 $
+  
+经典四阶龙格库塔公式如下
+$$...]]></summary>
+        <content type="html"><![CDATA[<h2 id="常微分方程为-xprimetx">常微分方程为：$$ x{\prime}(t)=x $$</h2>
+<p>其解析解容易求得为$$ t=e^t $$ 当t=0时，$ e^0=1 $,当t=10时，$ e^{10}=22026.465794806718 $</p>
+<!--more-->  
+<h3 id="经典四阶龙格库塔公式如下">经典四阶龙格库塔公式如下</h3>
+<p>$$f(x)=<br>
+\begin{cases}<br>
+y_{n+1}=y_n+\frac{h(k_1+2k_2+2k_3+k_4)}{6}  \newline<br>
+k_1=f(x_n,y_n)  \newline<br>
+k_2=f(x_n+\frac{h}{2},y_n+\frac{hk_1}{2})  \newline<br>
+k_3=f(x_n+\frac{h}{2},y_n+\frac{hk_2}{2})  \newline<br>
+k_4=f(x_{n+1},y_n+hk_3)<br>
+\end{cases}$$<br>
+本次计算，时间为0-10s，时间步长为0.001，以下为Python(Python3.6中编译通过)的计算代码：</p>
+<h2 id="代码如下">代码如下</h2>
+<pre><code>&quot;&quot;&quot;
+Created on Thu Nov  1 11:25:00 2018
+
+@author: Devil Grape
+&quot;&quot;&quot;
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+xintial=0   #x初始值 例如y'(t)=y,则xintial的初始值为t的初始值
+yintial=1  #y的初始值，例如y'(t)=y,则y(x=xintial)的值
+xfinal=10  #x的终点
+
+h=0.001   #步长
+N=(xfinal-xintial)/h #步数
+X,Y=[xintial],[yintial] #初始化
+
+def f(x,y):
+    return y
+
+y_n=Y[0]
+for i in range(int(N)):
+    x_n=i*h
+
+    k_1=f(x_n,y_n)
+    k_2=f(x_n+0.5*h,y_n+0.5*h*k_1)
+    k_3=f(x_n+0.5*h,y_n+0.5*h*k_2)
+    k_4=f(x_n+h,y_n+h*k_3)
+    y_n+=1/6*h*(k_1+2*k_2+2*k_3+k_4)
+    X.append(x_n+h)
+    Y.append(y_n)
+
+    
+exact=[math.exp(t) for t in range(11)]
+#error = np.array(exact) - np.array(Y)
+#print(&quot;max error {:.5f}&quot;.format(max(error)))
+plt.plot(X,Y,'r:',lw=2)
+a=np.linspace(0.,11.,11, endpoint=False)
+plt.scatter(a,exact,lw=2)
+
+
+</code></pre>
+<p>求解方程后得到，$ e^{10}=22026.465794804935 $与解析解22026.465794806718非常相近<br>
+如下为解析解和龙格库塔法求解结果的对比<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E9%BE%99%E6%A0%BC%E5%BA%93%E5%A1%94.jpg" alt="图片" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[复现图中数据]]></title>
+        <id>https://www.redred.xyz/fu-xian-tu-zhong-shu-ju</id>
+        <link href="https://www.redred.xyz/fu-xian-tu-zhong-shu-ju"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[平常在做科研的时候，有时做出的数据需要和已发表文献中的数据进行对比，但是通常文献中并没有列出足够多的数据，基本都是放一张曲线图就完事了，这就对我们造成了困扰。本次介绍一个可以完美读取并复现图片中曲线的方法。
+例图
+先用python画一幅余弦...]]></summary>
+        <content type="html"><![CDATA[<p>平常在做科研的时候，有时做出的数据需要和已发表文献中的数据进行对比，但是通常文献中并没有列出足够多的数据，基本都是放一张曲线图就完事了，这就对我们造成了困扰。本次介绍一个可以完美读取并复现图片中曲线的方法。</p>
+<h2 id="例图">例图</h2>
+<p>先用python画一幅余弦曲线图，代码如图形如下：</p>
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+x=np.linspace(-np.pi,np.pi,256,endpoint=True)
+plt.xlim(-4,4)
+plt.xticks([-4,-3,-2,-1,0,1,2,3,4])
+plt.ylim(-1.1,1.1)
+plt.yticks([-1.1,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1])
+plt.plot(x,np.cos(x))
+plt.savefig('余弦曲线.jpeg',dpi=500)
+</code></pre>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE1.jpg" alt="image" loading="lazy"></p>
+<h2 id="软件介绍">软件介绍</h2>
+<p>Engauge Digitizer（<a href="https://github.com/markummitchell/engauge-digitizer/releases">下载</a>）是一款从曲线图表中提取数据的软件，经过测试，非常好用，本文使用此软件来提取数据。下图为余弦曲线图导入后的界面<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE2.jpg" alt="image" loading="lazy"></p>
+<h2 id="读取数据">读取数据</h2>
+<p>选取数据点图形<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE3.jpg" alt="image" loading="lazy"><br>
+数据图（<a href="https://china-cfd.coding.net/s/863a2cea-b0d7-49f7-8d93-96823df40b55">下载</a>）<br>
+<img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE4.jpg" alt="image" loading="lazy"></p>
+<h2 id="数据拟合">数据拟合</h2>
+<p>使用python进行数据的拟合和绘图，代码如下：</p>
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+df = pd.read_csv('余弦曲线 (1).csv')
+x=df['x']
+y=df['yuxian']
+def fit(x,y,n):
+​    poly=np.polyfit(x,y,deg=n)
+​    z=np.polyval(poly,x)
+​    return z
+
+fit_y=fit(x,y,7)
+plt.xlim(-4,4)
+plt.xticks([-4,-3,-2,-1,0,1,2,3,4])
+plt.ylim(-1.1,1.1)
+plt.yticks([-1.1,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1])
+plt.plot(x,fit_y,color='r')
+plt.savefig('拟合.jpeg',dpi=500)
+</code></pre>
+<h3 id="拟合结果图">拟合结果图</h3>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE5.jpeg" alt="image" loading="lazy"></p>
+<h2 id="原图和拟合对比">原图和拟合对比</h2>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E5%A4%8D%E7%8E%B0%E5%9B%BE%E4%B8%AD%E6%95%B0%E6%8D%AE6.jpeg" alt="image" loading="lazy"></p>
+<h1 id="总结">总结</h1>
+<p>从对比图中可以看出拟合图和原图几乎完全一致，符合日常的使用要求，但这种方法请务必不要用于不正当的场所。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[二维对流方程]]></title>
+        <id>https://www.redred.xyz/er-wei-dui-liu-fang-cheng</id>
+        <link href="https://www.redred.xyz/er-wei-dui-liu-fang-cheng"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[二维对流方程的控制方程如下
+$$\frac{\partial u}{\partial t}+u \frac{\partial u}{\partial x}+v \frac{\partial u}{\partial y}=0$$
+$$\fra...]]></summary>
+        <content type="html"><![CDATA[<p>二维对流方程的控制方程如下<br>
+$$\frac{\partial u}{\partial t}+u \frac{\partial u}{\partial x}+v \frac{\partial u}{\partial y}=0$$<br>
+$$\frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} = 0$$</p>
+<!--more-->
+<p>方程离散形式和一维对流方程一样，时间项采用向前差分，空间项采用向后差分的方法。</p>
+<h2 id="方程离散">方程离散</h2>
+<p>$$\frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{u_{i,j}^n-u_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y} = 0$$<br>
+$$\frac{v_{i,j}^{n+1}-v_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{v_{i,j}^n-v_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{v_{i,j}^n-v_{i,j-1}^n}{\Delta y} = 0$$<br>
+整理后可得<br>
+$$u_{i,j}^{n+1} = u_{i,j}^n - u_{i,j} \frac{\Delta t}{\Delta x} (u_{i,j}^n-u_{i-1,j}^n) - v_{i,j}^n \frac{\Delta t}{\Delta y} (u_{i,j}^n-u_{i,j-1}^n)$$<br>
+$$v_{i,j}^{n+1} = v_{i,j}^n - u_{i,j} \frac{\Delta t}{\Delta x} (v_{i,j}^n-v_{i-1,j}^n) - v_{i,j}^n \frac{\Delta t}{\Delta y} (v_{i,j}^n-v_{i,j-1}^n)$$</p>
+<h2 id="初始条件">初始条件</h2>
+<p>$$u(x,y)=\begin{cases}<br>
+2,\quad x\geq 0.5,y\leq 1\newline<br>
+1,\quad 其他<br>
+\end{cases}$$</p>
+<h2 id="边界条件">边界条件</h2>
+<p>$$u=0\quad for\begin{cases}<br>
+x=0,2\newline<br>
+y=0,2<br>
+\end{cases}$$</p>
+<h2 id="编程求解">编程求解</h2>
+<h3 id="数值离散">数值离散</h3>
+<pre><code>from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import time
+#方程离散
+nx=81
+ny=81
+nt=100
+c=1
+dx=2/(nx-1)
+dy=2/(ny-1)
+sigma=0.2
+dt=sigma*dx
+
+x=np.linspace(0,2,nx)
+y=np.linspace(0,2,ny)
+
+u=np.ones((ny,nx))
+un=np.ones((ny,nx))
+</code></pre>
+<h3 id="初始条件-2">初始条件</h3>
+<pre><code>u[int(.5/dy):int(1/dy+1),int(.5/dx):int(1/dx+1)]=2
+X,Y=np.meshgrid(x,y)
+fig=plt.figure(figsize=(11,7),dpi=100)
+ax=fig.gca(projection='3d')
+surf=ax.plot_surface(X,Y,u[:],cmap=cm.viridis)
+</code></pre>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%BA%8C%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6.jpg" alt="图片" loading="lazy"></p>
+<h3 id="循环迭代求解">循环迭代求解</h3>
+<pre><code>start=time.clock()
+for n in range(nt+1): #时间步循环
+    un=u.copy()
+    row,col=u.shape
+    for j in range(1,row):
+        for i in range(1,col):
+            u[j,i]=(un[j,i]-(c*dt/dx*(un[j,i]-un[j,i-1]))-(c*dt/dy*(un[j,i]-un[j-1,i])))
+            u[0,:]=1
+            u[-1,:]=1
+            u[:,0]=1
+            u[:,-1]=1
+end=time.clock()
+time_elapsed=end-start
+print(time_elapsed)
+fig=plt.figure(figsize=(11,7),dpi=100)
+ax=fig.gca(projection='3d')
+surf2=ax.plot_surface(X,Y,u[:],cmap=cm.viridis)
+</code></pre>
+<h3 id="数组迭代求解">数组迭代求解</h3>
+<pre><code>start=time.clock()
+for n in range(nt+1):
+    un=u.copy()
+    u[1:,1:]=(un[1:,1:]-(c*dt/dx*(un[1:,1:]-un[1:,:-1]))-(c*dt/dy*(un[1:,1:]-un[:-1,1:])))
+    u[0,:]=1
+    u[-1,:]=1
+    u[:,0]=1
+    u[:,-1]=1
+end=time.clock()
+time_elapsed=end-start
+print(time_elapsed)
+fig=plt.figure(figsize=(11,7),dpi=100)
+ax=fig.gca(projection='3d')
+surf2=ax.plot_surface(X,Y,u[:],cmap=cm.viridis)  
+
+</code></pre>
+<p><img src="https://china-cfd.coding.net/p/photo/d/photo/git/raw/master/%E4%BA%8C%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B%E7%BB%93%E6%9E%9C.jpg" alt="图片" loading="lazy"></p>
+<h2 id="所用时间分析">所用时间分析</h2>
+<p>其中循环迭代用时2.008529353537142秒，数组迭代用时0.008145353428062663秒，循环迭代用时为数组迭代的246.58590585121635倍，说明在写代码过程中应尽量使用数组迭代<br>
+本文参考自<a href="http://nbviewer.jupyter.org/github/barbagroup/CFDPython/blob/master/lessons/08_Step_6.ipynb">CFDPython</a></p>
+]]></content>
+    </entry>
+</feed>
